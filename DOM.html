@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introduction to the DOM</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #333;
+      color: #fff;    
+    }
+
+    button {
+      padding: 6px 12px;
+      border: 1px solid #000;
+      background-color: #fff;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body class="dark-mode">
+
+  <h1 id="intro-text">Intro to the Document Object Model</h1>
+
+  <p>This is some content to display in the document.</p>
+
+  <div class="custom-bg">
+    <p>Here is more content inside a div element.</p>
+
+    <div>
+      <p>And even more content inside a nested div element.</p>
+    </div>
+  </div>
+
+  <button onclick="toggleStyle()">Toggle Style</button>
+
+  <script>
+  let h1Element = document.getElementById('intro-text');
+  h1Element.firstChild.nodeValue = "The get method";
+  h1Element.style.color = 'red';
+
+  pElements = document.getElementsByTagName('p');//HTMLCollection(3) [p, p, p]
+  for (let pElement of pElements) {
+    pElement.style.color = 'blue';
+  }
+
+  let customDiv = document.getElementsByClassName('custom-bg');
+  for (let pElement of customDiv) {
+    pElement.style.backgroundColor = 'lightgray';
+  }
+
+  let pElementinDiv = document.querySelectorAll('div p');
+  for (let pElement of pElementinDiv) {
+    pElement.style.fontWeight = 'bold';
+  }
+
+  let specialP = document.querySelector('.custom-bg p:not(.custom-bg>p)');
+  specialP.style.textDecoration = 'underline';
+  </script>
+
+</body>
+</html>
