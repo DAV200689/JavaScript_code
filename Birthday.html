@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Age Calculator</title>
+</head>
+<style>
+  *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+  font-family:Arial, sans-serif;
+  background-color:#dadada;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+.container{
+  background-color:#dfd1d1;
+  padding:30px;
+  border-radius:12px;
+  box-shadow:0 0 10px rgba(0,0,0,0.1);
+  width:400px;
+}
+.container h1{
+  text-align:center;
+  margin-bottom:20px;
+  color:#210e0e;
+}
+.input-box{
+  margin-bottom:20px;
+}
+.input-box label{
+  display:block;
+  margin-bottom:5px;
+  color:#210e0e;
+}
+
+.input-box input{
+  width:100%;
+  padding:10px;
+  border-radius:6px;
+  border:1px solid #cccc;
+}
+
+button{
+  width:100%;
+  padding:12px;
+  background-color:#ff6e7e;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  font-size:16px;
+}
+
+.result{
+  margin-top:20px;
+  font-size:18px;
+  color:#210e0e;
+}
+</style>
+<body>
+
+    <div class="container">
+        <h1>Age Calculator</h1>
+
+        <div class="input-box">
+            <label>Select Your Date of Birth</label>
+            <input type="date" id="dob" />
+        </div>
+
+        <button onclick="calculateAge()">Calculate Age</button>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <script >
+        function calculateAge() {
+            const dobInput = document.getElementById("dob").value;
+            const result = document.getElementById("result");
+
+            if (!dobInput) {
+                result.innerHTML = "Please select a date of birth.";
+                return;
+            }
+
+            const birthDate = new Date(dobInput);
+            const today = new Date();
+
+            let age = today.getFullYear() - birthDate.getFullYear();
+            let month = today.getMonth() - birthDate.getMonth();
+
+            if(month < 0 || (month == 0 && today.getDate() < birthDate.getDate())){
+                age--;
+            }
+
+            result.innerHTML = `You are <strong>${age}</strong> years old`;
+        }
+    </script>
+
+</body>
+</html>
