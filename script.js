@@ -167,3 +167,105 @@ for (let i = 0; i < names.length; i++) {
         console.log("Hello " + names[i]);
     }
 }
+//  let scriptElement = document.querySelector('script');
+
+//   let olElement = document.createElement('ol');
+
+//   let li1 = document.createElement('li');
+//   let text1 = document.createTextNode('Intro to the DOM');
+
+//   li1.appendChild(text1);  
+//   olElement.appendChild(li1);
+
+//    let li2 = document.createElement('li');
+//   let text2 = document.createTextNode('Getting to Elements');
+
+//   li2.appendChild(text2);
+//   olElement.appendChild(li2);
+
+
+//   let topics = ['Intro to the DOM', 'Getting to Elements', 'Querying the DOM', 'Creating Elements', 'removing Elements', 'Modifying Elements', ];
+//   let h1Element = document.getElementById('intro-text');
+//   let scriptElement = document.querySelector('script');
+
+//   let olElement = document.createElement('ol');
+
+//   topics.forEach(function(text) {
+//     let liElement = document.createElement('li');
+//     liElement.innerHTML = text;
+//     olElement.appendChild(liElement);
+//   });
+// olElement.removeChild(olElement.lastChild);
+//   h1Element.insertAdjacentElement('afterend', olElement);
+
+
+
+
+//   document.body.insertBefore(olElement, scriptElement);
+
+
+// scope is the area where a variable is defined and can be accessed. In JavaScript, there are three types of scope: global scope, function scope, and block scope.
+//   let a = 10;
+//   function outer() {
+//     let b = 30;
+//     function inner() {
+//         let c = 20;
+//         console.log(a, b, c);
+//     }
+//     inner();
+//   } 
+//     outer();
+
+// Closures
+
+// function outer() {
+//     let count = 0; 
+//     function inner() {
+//         count++;
+//         console.log(count);
+//     }       
+//     return inner;
+// }   
+// outer()()
+
+// Currying
+
+// function sum(a, b) {
+//     return a + b;
+// }
+// console.log(sum(2, 3)); 
+
+
+// This
+
+// const person = {
+//     name: 'DAV',
+//     sayMyName: function() { 
+//         console.log(this.name);
+//     }
+// // }
+// function Person(fname, lname) {
+//     this.fname = fname;
+//     this.lname = lname;
+// }
+
+// const person1 = new Person('DAV', 'M');
+// const person2 = new Person('VIC', 'Z');
+
+// Person.prototype.fullName = function() {
+//     return this.fname + ' ' + this.lname;
+// }
+
+// console.log(person1.fullName());   
+// console.log(person2.fullName());
+
+function Person(fname, lname) {
+    this.fname = fname;
+    this.lname = lname;
+}
+Person.prototype.fullName = function() {
+    return this.fname + ' ' + this.lname;
+}
+
+
+
