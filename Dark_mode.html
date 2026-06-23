@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dark Mode Exercise 5 - Final Challenge</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* TODO: Add CSS variables for light mode */
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f9fafb;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --border-color: #e5e7eb;
+            --accent-color: #6366f1;
+        }
+
+        /* TODO: Add body.dark selector with dark mode variables */
+         body.dark {
+            --bg-primary: #1f2937;
+            --bg-secondary: #374151;
+            --text-primary: #f9fafb;
+            --text-secondary: #d1d5db;
+            --border-color: #4b5563;
+            --accent-color: #6366f1;
+        } */
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        header {
+            background-color: var(--bg-primary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .theme-toggle {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            border-radius: 50px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero {
+            padding: 6rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--accent-color), #764ba2);
+            color: white;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .feature-card {
+            background-color: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        footer {
+            background-color: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 4rem;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <div class="logo">MyPortfolio</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+             <button id="themeToggle">🌙</button>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero" id="home">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Build beautiful websites with dark mode support</p>
+        </section>
+
+        <!-- FEATURES SECTION -->
+        <section id="features" class="container">
+            <h2 style="text-align: center; margin: 3rem 0 2rem 0;">Features</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Fast</h3>
+                    <p>Optimized performance with smooth transitions</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Beautiful</h3>
+                    <p>Modern design that works on all devices</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌙</div>
+                    <h3>Dark Mode</h3>
+                    <p>Comfortable viewing with automatic theme switching</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="container" style="padding: 4rem 2rem;">
+            <h2 style="text-align: center; margin-bottom: 2rem;">Get In Touch</h2>
+            <p style="text-align: center; max-width: 600px; margin: 0 auto; color: var(--text-secondary);">
+                This is your final exercise. You should have:
+            </p>
+            <ul style="max-width: 600px; margin: 2rem auto; color: var(--text-secondary); list-style: none; padding: 1rem;">
+                <li>✅ Added the toggle button in header</li>
+                <li>✅ Created CSS variables for light and dark modes</li>
+                <li>✅ Implemented toggleTheme() function</li>
+                <li>✅ Saved preference with localStorage</li>
+                <li>✅ Built a complete website with dark mode</li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 My Portfolio. Built with dark mode support.</p>
+    </footer>
+
+    <script>
+        // TODO: Implement the complete dark mode system
+        
+        /* Requirements:
+           1. Get the button by id "themeToggle"
+           2. Create setTheme(theme) function
+           3. Create toggleTheme() function  
+           4. Create initTheme() function to load saved preference
+           5. Add event listener to button
+           6. Call initTheme() when page loads
+        */
+
+        const themeToggle = document.getElementById('themeToggle');
+
+        function setTheme(theme) {
+             if (theme === 'dark') {
+                document.body.classList.add('dark');
+                themeToggle.textContent = '☀️'; // Change icon to sun
+            } else {
+                document.body.classList.remove('dark');
+                themeToggle.textContent = '🌙'; // Change icon to moon
+            }
+        }
+
+        function toggleTheme() {
+            const Dark = document.body.classList.contains('dark');
+            setTheme(Dark ? 'light' : 'dark');
+            localStorage.setItem('theme', Dark ? 'light' : 'dark');
+        }
+
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                setTheme(savedTheme);
+            } else {
+                // Default to light mode
+                setTheme('light');
+            }
+        }
+
+        // TODO: Initialize when DOM loads
+        document.addEventListener('DOMContentLoaded', initTheme);
+
+        // TODO: Add click listener
+        themeToggle?.addEventListener('click', toggleTheme);
+
+        console.log("Final Exercise: Complete dark mode implementation!");
+    </script>
+</body>
+</html>
